@@ -1,8 +1,6 @@
 package com.blogspot.javanbswing.treetable;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -23,17 +21,19 @@ public class TreeTableMain extends JFrame
 
     public TreeTableMain() 
     {
+        //sample doj
+        final Date doj = Calendar.getInstance().getTime();        
         List<Department> departmentList = new ArrayList<Department>();
 
         List<Employee> empList = new ArrayList<Employee>();
-        empList.add(new Employee(1, "Ram", Calendar.getInstance().getTime(), "emp1.jpg"));
-        empList.add(new Employee(2, "Krishna", Calendar.getInstance().getTime(), "emp2.jpg"));
+        empList.add(new Employee(1, "Ram", doj, "emp1.jpg"));
+        empList.add(new Employee(2, "Krishna", doj, "emp2.jpg"));
         departmentList.add(new Department(1, "Sales", empList));
 
         List<Employee> empList2 = new ArrayList<Employee>();
-        empList2.add(new Employee(3, "Govind", Calendar.getInstance().getTime(), "emp1.jpg"));
-        empList2.add(new Employee(4, "Kiran", Calendar.getInstance().getTime(), "emp2.jpg"));
-        empList2.add(new Employee(5, "Prabhu", Calendar.getInstance().getTime(), "emp1.jpg"));
+        empList2.add(new Employee(3, "Govind", doj, "emp1.jpg"));
+        empList2.add(new Employee(4, "Kiran", doj, "emp2.jpg"));
+        empList2.add(new Employee(5, "Prabhu", doj, "emp1.jpg"));
         departmentList.add(new Department(2, "Marketing", empList2));
         
         //we use a no root model
