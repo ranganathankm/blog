@@ -22,7 +22,7 @@ public class MyTreeTableModel extends AbstractTreeTableModel {
     @Override
     public Object getValueAt(Object node, int column) {
         if (node instanceof Organization) {
-            if (column == 0) {
+            if (column == 1) {
                 return ((Organization) node).getName();
             }
         }
