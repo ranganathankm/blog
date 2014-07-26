@@ -1,5 +1,6 @@
 package com.blogspot.javanbswing.sp;
 
+import com.blogspot.javanbswing.sp.api.ServiceInterface;
 import java.util.Iterator;
 import java.util.ServiceLoader;
 

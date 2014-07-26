@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>com.blogspot.javanbswing</groupId>
-            <artifactId>service-provider-impl-1</artifactId>
+            <artifactId>service-provider-impl-2</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
