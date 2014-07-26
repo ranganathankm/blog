@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.sp;
+package com.blogspot.javanbswing.sp.impl1;
 
 import junit.framework.Assert;
 import org.junit.Test;

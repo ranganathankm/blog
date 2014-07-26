@@ -1,4 +1,6 @@
-package com.blogspot.javanbswing.sp;
+package com.blogspot.javanbswing.sp.impl2;
+
+import com.blogspot.javanbswing.sp.api.ServiceInterface;
 
 /**
  * @author ranga

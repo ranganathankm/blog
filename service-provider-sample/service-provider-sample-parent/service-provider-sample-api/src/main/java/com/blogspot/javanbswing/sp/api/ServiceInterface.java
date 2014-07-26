@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.sp;
+package com.blogspot.javanbswing.sp.api;
 
 /**
  * @author ranga
