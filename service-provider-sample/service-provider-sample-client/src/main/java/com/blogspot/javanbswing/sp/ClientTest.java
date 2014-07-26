@@ -1,7 +1,6 @@
 package com.blogspot.javanbswing.sp;
 
 import com.blogspot.javanbswing.sp.api.ServiceInterface;
-import java.util.Iterator;
 import java.util.ServiceLoader;
 
 /**
@@ -17,11 +16,5 @@ public class ClientTest
             = ServiceLoader.load(ServiceInterface.class);
         ServiceInterface api = serviceLoader.iterator().next();
         System.out.println("from " + api.serviceMethod());
-        
-        
-        Iterator<ServiceInterface> iterator = serviceLoader.iterator();
-        while(iterator.hasNext()) {
-            System.out.println(iterator.next().getClass());
-        }
     }
 }
