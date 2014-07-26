@@ -33,7 +33,7 @@ public class TreeTableMain extends JFrame
         List<Employee> empList2 = new ArrayList<Employee>();
         empList2.add(new Employee(3, "Govind", Calendar.getInstance().getTime(), "emp1.jpg"));
         empList2.add(new Employee(4, "Kiran", Calendar.getInstance().getTime(), "emp2.jpg"));
-        empList2.add(new Employee(5, "Karthik", Calendar.getInstance().getTime(), "emp1.jpg"));
+        empList2.add(new Employee(5, "Prabhu", Calendar.getInstance().getTime(), "emp1.jpg"));
         departmentList.add(new Department(2, "Marketing", empList2));
         
         //we use a no root model
