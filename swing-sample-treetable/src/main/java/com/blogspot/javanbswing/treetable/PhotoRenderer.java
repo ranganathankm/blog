@@ -17,7 +17,7 @@ public class PhotoRenderer extends JLabel
                             boolean isSelected, boolean hasFocus,
                             int row, int column) {
         if(photo != null) {
-            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/" + photo + ".jpg"));
+            ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/" + photo));
             setIcon(imageIcon);
         }
         else {

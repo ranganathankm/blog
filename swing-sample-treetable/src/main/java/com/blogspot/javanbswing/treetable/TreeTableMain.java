@@ -26,23 +26,23 @@ public class TreeTableMain extends JFrame
         List<Department> departmentList = new ArrayList<Department>();
 
         List<Employee> empList = new ArrayList<Employee>();
-        empList.add(new Employee(1, "Ram", Calendar.getInstance().getTime(), "emp2"));
-        empList.add(new Employee(2, "Krishna", Calendar.getInstance().getTime(), "emp3"));
+        empList.add(new Employee(1, "Ram", Calendar.getInstance().getTime(), "emp1.jpg"));
+        empList.add(new Employee(2, "Krishna", Calendar.getInstance().getTime(), "emp2.jpg"));
         departmentList.add(new Department(1, "Sales", empList));
 
         List<Employee> empList2 = new ArrayList<Employee>();
-        empList2.add(new Employee(3, "Govind", Calendar.getInstance().getTime(), "emp2"));
-        empList2.add(new Employee(4, "Kiran", Calendar.getInstance().getTime(), "emp3"));
-        empList2.add(new Employee(5, "Karthik", Calendar.getInstance().getTime(), "emp2"));
+        empList2.add(new Employee(3, "Govind", Calendar.getInstance().getTime(), "emp1.jpg"));
+        empList2.add(new Employee(4, "Kiran", Calendar.getInstance().getTime(), "emp2.jpg"));
+        empList2.add(new Employee(5, "Karthik", Calendar.getInstance().getTime(), "emp1.jpg"));
         departmentList.add(new Department(2, "Marketing", empList2));
         
         //we use a no root model
         NoRootTreeTableModel noRootTreeTableModel = new NoRootTreeTableModel(departmentList);
         treeTable = new JXTreeTable(noRootTreeTableModel);
-        treeTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);        
+        treeTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         treeTable.setRootVisible(false);
         treeTable.getColumnModel().getColumn(3).setCellRenderer(new PhotoRenderer());
-        treeTable.setRowHeight(40);
+        treeTable.setRowHeight(50);
 
         add(new JScrollPane(treeTable));
 
