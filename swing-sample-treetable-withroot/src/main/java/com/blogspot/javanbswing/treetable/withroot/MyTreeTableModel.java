@@ -87,9 +87,49 @@ public class MyTreeTableModel extends AbstractTreeTableModel {
 
     @Override
     public boolean isCellEditable(Object node, int column) {
-        return node instanceof Employee;
+        if (node instanceof Organization && (0 == column || 2 == column)) {
+            return false;
+        }
+        else if (node instanceof Department && column == 2) {
+            return false;
+        }
+
+        return true;
     }
 
+    @Override
+    public void setValueAt(Object value, Object node, int column) {
+        String strValue = (String) value;
+        if (node instanceof Organization) {
+            Organization org = (Organization) node;
+            switch (column) {
+                case 1:
+                    org.setName(strValue);
+                    break;
+            }
+        } else if (node instanceof Department) {
+            Department dept = (Department) node;
+            switch (column) {
+                case 0:
+                    dept.setId(Integer.valueOf(strValue));
+                    break;
+                case 1:
+                    dept.setName(strValue);
+                    break;
+            }
+        } else if (node instanceof Employee) {
+            Employee emp = (Employee) node;
+            switch (column) {
+                case 0:
+                    emp.setId(Integer.valueOf(strValue));
+                    break;
+                case 1:
+                    emp.setName(strValue);
+                    break;
+            }
+        }
+    }
+    
     @Override
     public boolean isLeaf(Object node) {
         return node instanceof Employee;
