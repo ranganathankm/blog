@@ -19,16 +19,16 @@ public class TreeTableMainWithRoot extends JFrame {
 
         List<Department> departmentList = new ArrayList<Department>();
 
-        List<Employee> empList = new ArrayList<Employee>();
-        empList.add(new Employee(1, "Ram", doj, "emp1.jpg"));
-        empList.add(new Employee(2, "Krishna", doj, "emp2.jpg"));
-        departmentList.add(new Department(1, "Sales", empList));
+        List<Employee> empList1 = new ArrayList<Employee>();
+        empList1.add(new Employee(1, "Kiran", doj, "emp1.jpg"));
+        empList1.add(new Employee(2, "Prabhu", doj, "emp2.jpg"));
+        empList1.add(new Employee(3, "Murugavel", doj, "emp1.jpg"));        
+        departmentList.add(new Department(1, "Sales", empList1));
 
         List<Employee> empList2 = new ArrayList<Employee>();
-        empList2.add(new Employee(3, "Govind", doj, "emp1.jpg"));
-        empList2.add(new Employee(4, "Kiran", doj, "emp2.jpg"));
-        empList2.add(new Employee(5, "Prabhu", doj, "emp1.jpg"));
-        departmentList.add(new Department(2, "Marketing", empList2));
+        empList2.add(new Employee(4, "Deiveegan", doj, "emp2.jpg"));
+        empList2.add(new Employee(5, "Saravanan", doj, "emp1.jpg"));
+        departmentList.add(new Department(2, "Production", empList2));
         
         Organization organization = new Organization("ABC XYZ Corporation", departmentList);
         
