@@ -19,15 +19,18 @@ public class TableViewSample extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        //define sample Employee objects        
         final Employee emp1 = new Employee(1, "Ram", 23123.23, LocalDate.now(), false);
         final Employee emp2 = new Employee(2, "Krishna", 32398.76, LocalDate.now(), true);
 
         final ObservableList<Employee> data
                 = FXCollections.observableArrayList(
                         emp1, emp2);
-        
+         
+        //initialise the TableView
         TableView<Employee> tableView = new TableView<>();        
 
+        //define the columns in the table        
         TableColumn<Employee, Integer> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(
                 new PropertyValueFactory<>("id"));

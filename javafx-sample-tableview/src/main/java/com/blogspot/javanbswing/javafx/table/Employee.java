@@ -21,8 +21,8 @@ public class Employee
         this.id = new SimpleIntegerProperty(id);
         this.name = new SimpleStringProperty(name);
         this.salary = new SimpleDoubleProperty(salary);
+        this.doj = new SimpleObjectProperty<>(doj);        
         this.partTime = new SimpleBooleanProperty(partTime);
-        this.doj = new SimpleObjectProperty<>(doj);
     }
 
     public int getId()
@@ -55,6 +55,11 @@ public class Employee
         this.salary.set(salary);
     }
 
+    public SimpleBooleanProperty partTimeProperty()
+    {
+        return partTime;
+    }
+    
     public boolean isPartTime()
     {
         return partTime.get();
