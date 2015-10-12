@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.netbeans.api</groupId>
-            <artifactId>org-netbeans-diff</artifactId>
+            <artifactId>org-netbeans-diff-standalone</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
