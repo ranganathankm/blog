@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.*;
 import javafx.scene.layout.*;
 import javafx.stage.*;
+import javafx.util.StringConverter;
 import javafx.util.converter.*;
 
 /**
@@ -57,7 +58,25 @@ public class TableViewSample extends Application {
         dojCol.setPrefWidth(100);
         dojCol.setCellValueFactory(
                 new PropertyValueFactory<>("doj"));
+        dojCol.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<LocalDate>(){
+            @Override
+            public String toString(LocalDate object)
+            {
+                if(null == object)
+                    return "";
+                return object.toString();
+            }
 
+            @Override
+            public LocalDate fromString(String value)
+            {
+                if (value == null) {
+                    return null;
+                }                
+                return LocalDate.parse(value);
+            }
+        }));
+        
         tableView.getColumns().addAll(idCol, nameCol, salaryCol, partTimeCol, dojCol);
 
         tableView.setItems(data);
