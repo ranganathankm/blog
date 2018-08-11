@@ -1,0 +1,6 @@
+<div ng-hide="authenticated">Please <a href="#!/login">login</a> first</div>
+<div ng-show="authenticated">
+    <div id="connected"></div>
+    <input type="button" id="b1" value="connect" onclick="connect()" />
+    <div id="greetings"></div>
+</div>

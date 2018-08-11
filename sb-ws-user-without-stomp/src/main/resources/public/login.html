@@ -1,0 +1,12 @@
+<div ng-show="authenticated" >logged in</div>
+<div id="login" ng-hide="authenticated" >
+    <form name="loginForm">
+        <label>User:</label>
+        <input type="text" id="user" ng-model="credentials.username"/>
+        <br/>
+        <label>Password:</label>
+        <input type="password" id="pwd" ng-model="credentials.password"/>
+
+        <input type="button" value="Login" ng-click="doLogin()" />
+    </form>
+</div>
