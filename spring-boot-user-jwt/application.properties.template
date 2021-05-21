@@ -1,0 +1,13 @@
+# App config
+server.port=
+
+spring.profiles.active=local
+
+bspring.datasource.url=<url>
+spring.datasource.username=
+spring.datasource.password=
+spring.jpa.hibernate.ddl-auto=update
+
+jwt.key.hash=
+
+jwt.expiration.in.minutes=

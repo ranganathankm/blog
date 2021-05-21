@@ -23,6 +23,7 @@ import org.springframework.security.core.GrantedAuthority;
 import com.blogspot.ranganathankm.user.jwt.model.UserLoginDto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
@@ -32,14 +33,17 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  * @author ranga
  */
+@Slf4j
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private final String keyHash;
-    private final long EXPIRATION_TIME = TimeUnit.MINUTES.toMillis(30);
     
     private final ObjectMapper obj = new ObjectMapper();
+    private final Integer expMinutes;
     
-    public AuthenticationFilter(String key, AuthenticationManager authenticationManager) {
+    public AuthenticationFilter(String key, Integer expMinutes, AuthenticationManager authenticationManager) {
         this.keyHash = key;
+        this.expMinutes = expMinutes;
+        log.info("Expiration time (in minutes): {}", expMinutes);
         super.setAuthenticationManager(authenticationManager);
     }
 
@@ -47,25 +51,20 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
-        System.out.println("exp-time:" + EXPIRATION_TIME);
-        
+        long EXPIRATION_TIME = TimeUnit.MINUTES.toMillis(expMinutes);
         
         Date exp = new Date(System.currentTimeMillis() + EXPIRATION_TIME);
-        System.out.println("exp-date:" + exp);
-        System.out.println("exp-time-mills:" + exp.getTime());
         
         Key key = Keys.hmacShaKeyFor(this.keyHash.getBytes());
         final String authName = auth.getName();
-        System.out.println("auth name:" + authName);
+        log.info("user successfully authenitcated: {}", authName);
         Claims claims = Jwts.claims().setSubject(authName);
         
         Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
         if(!authorities.isEmpty()) {
             String role = authorities.iterator().next().getAuthority();
-            System.out.println("role-check:" + role);
             claims.put(SecurityConstants.ROLE, role);
         }
-        System.out.println("user:" + authName);
         String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512)
                 .setExpiration(exp).compact();
         res.addHeader(SecurityConstants.TOKEN, token);

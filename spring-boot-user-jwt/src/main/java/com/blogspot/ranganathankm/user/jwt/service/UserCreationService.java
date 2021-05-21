@@ -5,6 +5,7 @@ import com.blogspot.ranganathankm.user.jwt.model.AppUser;
 import com.blogspot.ranganathankm.user.jwt.model.UserPassword;
 import com.blogspot.ranganathankm.user.jwt.model.UserRole;
 import com.blogspot.ranganathankm.user.jwt.repo.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * @author ranga
  * 
  */
+@Slf4j
 @Service
 public class UserCreationService
 {
@@ -55,6 +57,8 @@ public class UserCreationService
 
     @Transactional
     public AppUser addUser(AppUser appUser, String password, AppRole role) {
+        log.info("adding new user to the system: {} with role: {}", appUser.getLoginName(), role);
+        
         appUser.setActive(true);
         appUserRepository.save(appUser);
         

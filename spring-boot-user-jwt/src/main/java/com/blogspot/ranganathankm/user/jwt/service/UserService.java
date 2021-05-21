@@ -43,12 +43,13 @@ public class UserService implements UserDetailsService
     
     @Override
     public UserDetails loadUserByUsername(String loginName) throws UsernameNotFoundException {
-        AppUser appUser = appUserRepository.findFirstByLoginName(loginName);
-        System.out.println("appUser:" + loginName);
+        AppUser appUser = appUserRepository.findFirstByLoginName(loginName).orElseThrow(() -> 
+            new UsernameNotFoundException(
+                    String.format("User: %s, not found", loginName))
+        );
+
         UserPassword up = userPasswordRepository.findByAppUser(appUser);
-        System.out.println("appUser:" + up);
         List<UserRole> roleList = urr.findByAppUser(appUser);
-        System.out.println("appUser:" + roleList);
 
         //for now, only one role per user
         return new UserDetailsImpl(appUser, up.getPasswordHash(), roleList.get(0).getRole().getName());

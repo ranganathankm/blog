@@ -2,8 +2,6 @@ package com.blogspot.ranganathankm.user.jwt.security;
 
 import com.blogspot.ranganathankm.user.jwt.model.AppRole;
 import com.blogspot.ranganathankm.user.jwt.service.UserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -25,16 +23,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${jwt.key.hash}")
     private String keyHash;
 
+    @Value("${jwt.expiration.in.minutes}")
+    private Integer expMinutes;
+    
     @Autowired
     private UserService userService;
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        System.out.println("keyhole:" + keyHash);
         http.cors().and().csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilter(new AuthenticationFilter(keyHash, authenticationManager()))
+                .addFilter(new AuthenticationFilter(keyHash, expMinutes, authenticationManager()))
                 .addFilter(new TokenVerificationFilter(keyHash, authenticationManager()))
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/signup").permitAll()
@@ -43,10 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/normal/*").hasRole(AppRole.USER.toString())
                 .antMatchers("/admin/*").hasRole(AppRole.ADMIN.toString())
                 .anyRequest().denyAll()
-                .and()
-                
-                ;
-    
+                ;    
     }
 
     @Bean

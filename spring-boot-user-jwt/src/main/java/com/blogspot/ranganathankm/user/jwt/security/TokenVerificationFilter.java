@@ -15,19 +15,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.security.Key;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  *
  * @author ranga
  */
+@Slf4j
 public class TokenVerificationFilter extends BasicAuthenticationFilter {
 
     private final String keyHash;
-
+        
     public TokenVerificationFilter(String key, AuthenticationManager authManager) {
         super(authManager);
         this.keyHash = key;
@@ -55,8 +55,8 @@ public class TokenVerificationFilter extends BasicAuthenticationFilter {
 
             if (user != null) {
                 String uname = user.getSubject();
+                log.info("token verified for {}", uname);
                 String role = user.get(SecurityConstants.ROLE).toString();
-                System.out.println("user:"+ uname + "' with role:" + role);
                 List<UserDetailsImpl.RoleGrantedAuthority> asList = Arrays.asList(new UserDetailsImpl.RoleGrantedAuthority(role));
                 return new UsernamePasswordAuthenticationToken(user, null, asList);
             }
