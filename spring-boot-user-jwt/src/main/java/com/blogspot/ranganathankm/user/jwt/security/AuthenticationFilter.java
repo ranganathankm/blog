@@ -45,8 +45,24 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         this.expMinutes = expMinutes;
         log.info("Expiration time (in minutes): {}", expMinutes);
         super.setAuthenticationManager(authenticationManager);
+        
+        super.setFilterProcessesUrl("/authenticate"); 
     }
 
+    @Override
+    public Authentication attemptAuthentication(HttpServletRequest req,
+                                                HttpServletResponse res) throws AuthenticationException {
+        try {
+            UserLoginDto ulDto = obj.readValue(req.getInputStream(), UserLoginDto.class);
+
+            final UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(ulDto.getUsername(),
+                    ulDto.getPassword(), new ArrayList<>());
+            return getAuthenticationManager().authenticate(authRequest);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
     @Override
     protected void successfulAuthentication(HttpServletRequest req, HttpServletResponse res, FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
@@ -68,20 +84,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512)
                 .setExpiration(exp).compact();
         res.addHeader(SecurityConstants.TOKEN, token);
-    }
-    
-    @Override
-    public Authentication attemptAuthentication(HttpServletRequest req,
-                                                HttpServletResponse res) throws AuthenticationException {
-        try {
-            UserLoginDto ulDto = obj.readValue(req.getInputStream(), UserLoginDto.class);
-
-            final UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(ulDto.getUsername(),
-                    ulDto.getPassword(), new ArrayList<>());
-            return getAuthenticationManager().authenticate(authRequest);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
 }

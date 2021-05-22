@@ -11,3 +11,5 @@ spring.jpa.hibernate.ddl-auto=update
 jwt.key.hash=
 
 jwt.expiration.in.minutes=
+
+cors.allowed.origins=

@@ -38,16 +38,13 @@ public class TokenVerificationFilter extends BasicAuthenticationFilter {
                                     HttpServletResponse response,
                                     FilterChain chain) throws IOException, ServletException {
 
-        UsernamePasswordAuthenticationToken authentication = authenticate(request);
-        if(null != authentication) {
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        }
-        chain.doFilter(request, response);
-    }
+        UsernamePasswordAuthenticationToken authentication = null;
     
-    private UsernamePasswordAuthenticationToken authenticate(HttpServletRequest request) {
         String token = request.getHeader(SecurityConstants.HEADER_NAME);
-        if (token != null) {
+        
+        if (token != null && token.startsWith(SecurityConstants.TOKEN_PREFIX)) {
+            token = token.replace(SecurityConstants.TOKEN_PREFIX, "");
+            
             Claims user = Jwts.parser()
                     .setSigningKey(Keys.hmacShaKeyFor(keyHash.getBytes()))
                     .parseClaimsJws(token)
@@ -58,9 +55,13 @@ public class TokenVerificationFilter extends BasicAuthenticationFilter {
                 log.info("token verified for {}", uname);
                 String role = user.get(SecurityConstants.ROLE).toString();
                 List<UserDetailsImpl.RoleGrantedAuthority> asList = Arrays.asList(new UserDetailsImpl.RoleGrantedAuthority(role));
-                return new UsernamePasswordAuthenticationToken(user, null, asList);
+                authentication = new UsernamePasswordAuthenticationToken(user, null, asList);
+                
+                SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }
-        return null;
+        
+        chain.doFilter(request, response);
     }
+    
 }

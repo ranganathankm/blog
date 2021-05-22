@@ -26,6 +26,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${jwt.expiration.in.minutes}")
     private Integer expMinutes;
     
+    @Value("${cors.allowed.origins}")
+    private String corsAllowedOrigins;
+        
     @Autowired
     private UserService userService;
     
