@@ -20,21 +20,21 @@ CREATE TABLE `app_user`.`user_password` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-CREATE TABLE `app_user`.`role_master` (
+CREATE TABLE `app_user`.`authority_master` (
   `id` INT NOT NULL,
   `name` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE `app_user`.`user_role` (
+CREATE TABLE `app_user`.`user_authority` (
   `id` INT NOT NULL,
   `user_id` INT NOT NULL,
-  `role_id` INT NOT NULL,
+  `authority_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `role_fk_idx` (`role_id` ASC) VISIBLE,
+  INDEX `authority_fk_idx` (`authority_id` ASC) VISIBLE,
   INDEX `usr_fk_idx` (`user_id` ASC) VISIBLE,
-  CONSTRAINT `role_fk`
-    FOREIGN KEY (`role_id`)
-    REFERENCES `app_user`.`role_master` (`id`)
+  CONSTRAINT `authority_fk`
+    FOREIGN KEY (`authority_id`)
+    REFERENCES `app_user`.`authority_master` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `usr_fk`
