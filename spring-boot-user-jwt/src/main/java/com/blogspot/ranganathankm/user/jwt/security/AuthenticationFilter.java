@@ -79,7 +79,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Collection<? extends GrantedAuthority> authorities = auth.getAuthorities();
         if(!authorities.isEmpty()) {
             String role = authorities.iterator().next().getAuthority();
-            claims.put(SecurityConstants.ROLE, role);
+            claims.put(SecurityConstants.AUTHORITY, role);
         }
         String token = Jwts.builder().setClaims(claims).signWith(key, SignatureAlgorithm.HS512)
                 .setExpiration(exp).compact();

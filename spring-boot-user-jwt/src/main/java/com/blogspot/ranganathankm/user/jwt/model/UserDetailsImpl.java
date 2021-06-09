@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -12,13 +13,12 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public class UserDetailsImpl implements UserDetails
 {
-    private static final String ROLE_ = "ROLE_";
     
     private final AppUser appUser;
     private final String passwordHash;
-    private final AppRole appRole;
+    private final String appRole;
 
-    public UserDetailsImpl(AppUser appUser, String passwordHash, AppRole appRole) {
+    public UserDetailsImpl(AppUser appUser, String passwordHash, String appRole) {
         this.appUser = appUser;
         this.passwordHash = passwordHash;
         this.appRole = appRole;
@@ -26,8 +26,8 @@ public class UserDetailsImpl implements UserDetails
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<RoleGrantedAuthority> roleSet = new HashSet<>();
-        roleSet.add(new RoleGrantedAuthority(ROLE_+ appRole.toString()));
+        Set<GrantedAuthority> roleSet = new HashSet<>();
+        roleSet.add(new SimpleGrantedAuthority(appRole));
         return roleSet;
     }
 
@@ -59,21 +59,6 @@ public class UserDetailsImpl implements UserDetails
     @Override
     public boolean isEnabled() {
         return appUser.isActive();
-    }
-    
-    public static class RoleGrantedAuthority implements GrantedAuthority {
-
-        private final String roleName;
-
-        public RoleGrantedAuthority(String roleName) {
-            this.roleName = roleName;
-        }
-
-        @Override
-        public String getAuthority() {
-            return roleName;
-        }
-        
     }
     
 }

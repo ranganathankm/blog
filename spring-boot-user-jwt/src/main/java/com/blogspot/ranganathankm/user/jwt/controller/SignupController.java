@@ -1,7 +1,7 @@
 package com.blogspot.ranganathankm.user.jwt.controller;
 
 import com.blogspot.ranganathankm.user.jwt.model.SignupUser;
-import com.blogspot.ranganathankm.user.jwt.model.AppRole;
+import com.blogspot.ranganathankm.user.jwt.model.AppAuth;
 import com.blogspot.ranganathankm.user.jwt.model.AppUser;
 import com.blogspot.ranganathankm.user.jwt.service.UserCreationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +23,6 @@ public class SignupController {
     
     @PostMapping
     public void signupNewUser(@RequestBody SignupUser signUpUser) {
-        userCreationService.addUser(signUpUser.getLoginName(), signUpUser.getPassword(), AppRole.USER);
+        userCreationService.addUser(signUpUser.getLoginName(), signUpUser.getPassword(), AppAuth.USER);
     }
 }

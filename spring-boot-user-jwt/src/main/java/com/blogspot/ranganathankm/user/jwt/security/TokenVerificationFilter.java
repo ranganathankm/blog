@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 /**
  *
@@ -53,8 +55,8 @@ public class TokenVerificationFilter extends BasicAuthenticationFilter {
             if (user != null) {
                 String uname = user.getSubject();
                 log.info("token verified for {}", uname);
-                String role = user.get(SecurityConstants.ROLE).toString();
-                List<UserDetailsImpl.RoleGrantedAuthority> asList = Arrays.asList(new UserDetailsImpl.RoleGrantedAuthority(role));
+                String role = user.get(SecurityConstants.AUTHORITY).toString();
+                List<GrantedAuthority> asList = Arrays.asList(new SimpleGrantedAuthority(role));
                 authentication = new UsernamePasswordAuthenticationToken(user, null, asList);
                 
                 SecurityContextHolder.getContext().setAuthentication(authentication);

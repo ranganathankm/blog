@@ -40,8 +40,7 @@ public class RoleMaster implements Serializable
     @Column(name = "id")
     private Integer id;
     @Column(name = "name")
-    @Enumerated(EnumType.STRING)
-    private AppRole name;
+    private String name;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
     private Collection<UserRole> userRoleCollection;
 
@@ -54,7 +53,7 @@ public class RoleMaster implements Serializable
         this.id = id;
     }
 
-    public RoleMaster(Integer id, AppRole name)
+    public RoleMaster(Integer id, String name)
     {
         this.id = id;
         this.name = name;
@@ -70,12 +69,12 @@ public class RoleMaster implements Serializable
         this.id = id;
     }
 
-    public AppRole getName()
+    public String getName()
     {
         return name;
     }
 
-    public void setName(AppRole name)
+    public void setName(String name)
     {
         this.name = name;
     }

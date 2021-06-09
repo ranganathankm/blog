@@ -1,6 +1,5 @@
 package com.blogspot.ranganathankm.user.jwt.service;
 
-import com.blogspot.ranganathankm.user.jwt.model.AppRole;
 import com.blogspot.ranganathankm.user.jwt.model.AppUser;
 import com.blogspot.ranganathankm.user.jwt.model.UserPassword;
 import com.blogspot.ranganathankm.user.jwt.model.UserRole;
@@ -34,7 +33,7 @@ public class UserCreationService
     private PasswordEncoder passwordEncoder;    
     
     @Transactional
-    public AppUser addUser(String loginName, String password, AppRole role)
+    public AppUser addUser(String loginName, String password, String role)
             throws DataAccessException
     {
         AppUser appUser = new AppUser();
@@ -43,8 +42,8 @@ public class UserCreationService
     }
     
     @Transactional
-    public AppUser addUser(String loginName, String password, String firstName, String lastName, String email, String mobile, AppRole role)
-            throws DataAccessException
+    public AppUser addUser(String loginName, String password, String firstName, String lastName, String email, 
+            String mobile, String role) throws DataAccessException
     {
         AppUser appUser = new AppUser();
         appUser.setLoginName(email);
@@ -56,7 +55,7 @@ public class UserCreationService
     }
 
     @Transactional
-    public AppUser addUser(AppUser appUser, String password, AppRole role) {
+    public AppUser addUser(AppUser appUser, String password, String role) {
         log.info("adding new user to the system: {} with role: {}", appUser.getLoginName(), role);
         
         appUser.setActive(true);

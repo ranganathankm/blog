@@ -11,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.blogspot.ranganathankm.user.jwt.model.AppRole;
 import com.blogspot.ranganathankm.user.jwt.model.AppUser;
 import com.blogspot.ranganathankm.user.jwt.model.UserDetailsImpl;
 import com.blogspot.ranganathankm.user.jwt.model.UserPassword;
