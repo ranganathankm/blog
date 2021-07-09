@@ -1,9 +1,9 @@
-package com.blogspot.javanbswing.spring.custom.auth.repo;
+package com.blogspot.ranganathankm.spring.custom.auth.repo;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import com.blogspot.javanbswing.spring.custom.auth.model.AppUser;
-import com.blogspot.javanbswing.spring.custom.auth.model.UserPassword;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppUser;
+import com.blogspot.ranganathankm.spring.custom.auth.model.UserPassword;
 
 /**
  *

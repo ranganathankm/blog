@@ -1,9 +1,9 @@
-package com.blogspot.javanbswing.spring.custom.auth.repo;
+package com.blogspot.ranganathankm.spring.custom.auth.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
-import com.blogspot.javanbswing.spring.custom.auth.model.AppRole;
-import com.blogspot.javanbswing.spring.custom.auth.model.RoleMaster;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.spring.custom.auth.model.RoleMaster;
 
 /**
  *

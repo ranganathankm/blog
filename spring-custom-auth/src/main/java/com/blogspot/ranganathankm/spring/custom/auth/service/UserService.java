@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.spring.custom.auth.service;
+package com.blogspot.ranganathankm.spring.custom.auth.service;
 
 import java.security.Principal;
 import java.util.Collection;
@@ -11,14 +11,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-import com.blogspot.javanbswing.spring.custom.auth.model.AppRole;
-import com.blogspot.javanbswing.spring.custom.auth.model.AppUser;
-import com.blogspot.javanbswing.spring.custom.auth.model.UserLoginDto;
-import com.blogspot.javanbswing.spring.custom.auth.model.UserPassword;
-import com.blogspot.javanbswing.spring.custom.auth.model.UserRole;
-import com.blogspot.javanbswing.spring.custom.auth.repo.AppUserRepository;
-import com.blogspot.javanbswing.spring.custom.auth.repo.UserPasswordRepository;
-import com.blogspot.javanbswing.spring.custom.auth.repo.UserRoleRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppUser;
+import com.blogspot.ranganathankm.spring.custom.auth.model.UserLoginDto;
+import com.blogspot.ranganathankm.spring.custom.auth.model.UserPassword;
+import com.blogspot.ranganathankm.spring.custom.auth.model.UserRole;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.AppUserRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.UserPasswordRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.UserRoleRepository;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 

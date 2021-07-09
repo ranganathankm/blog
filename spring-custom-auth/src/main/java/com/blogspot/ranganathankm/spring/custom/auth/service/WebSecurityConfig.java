@@ -1,6 +1,6 @@
-package com.blogspot.javanbswing.spring.custom.auth.service;
+package com.blogspot.ranganathankm.spring.custom.auth.service;
 
-import com.blogspot.javanbswing.spring.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppRole;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

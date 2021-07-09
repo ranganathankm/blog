@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.spring.custom.auth.model;
+package com.blogspot.ranganathankm.spring.custom.auth.model;
 
 /**
  *

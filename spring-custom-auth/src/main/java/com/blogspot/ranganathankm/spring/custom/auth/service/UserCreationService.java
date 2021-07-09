@@ -1,14 +1,17 @@
-package com.blogspot.javanbswing.spring.custom.auth.service;
+package com.blogspot.ranganathankm.spring.custom.auth.service;
 
-import com.blogspot.javanbswing.spring.custom.auth.model.AppRole;
-import com.blogspot.javanbswing.spring.custom.auth.model.UserPassword;
-import com.blogspot.javanbswing.spring.custom.auth.model.UserRole;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppUser;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.UserRoleRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.RoleMasterRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.UserPasswordRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.repo.AppUserRepository;
+import com.blogspot.ranganathankm.spring.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.spring.custom.auth.model.UserPassword;
+import com.blogspot.ranganathankm.spring.custom.auth.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.blogspot.javanbswing.spring.custom.auth.model.*;
-import com.blogspot.javanbswing.spring.custom.auth.repo.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
