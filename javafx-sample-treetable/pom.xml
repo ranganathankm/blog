@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.blogspot.javanbswing</groupId>
+    <groupId>com.blogspot.ranganathankm</groupId>
     <artifactId>javafx-sample-treetable</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
@@ -11,7 +11,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>com.blogspot.javanbswing.javafx.treetable.TreeTableViewSample</mainClass>
+        <mainClass>com.blogspot.ranganathankm.javafx.treetable.TreeTableViewSample</mainClass>
     </properties>
 
     <build>

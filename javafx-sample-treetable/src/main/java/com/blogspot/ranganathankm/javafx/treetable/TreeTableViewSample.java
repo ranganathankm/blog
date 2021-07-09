@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.javafx.treetable;
+package com.blogspot.ranganathankm.javafx.treetable;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
