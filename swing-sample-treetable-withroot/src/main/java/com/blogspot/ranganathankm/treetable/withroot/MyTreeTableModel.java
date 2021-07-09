@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.treetable.withroot;
+package com.blogspot.ranganathankm.treetable.withroot;
 
 import org.jdesktop.swingx.treetable.AbstractTreeTableModel;
 
