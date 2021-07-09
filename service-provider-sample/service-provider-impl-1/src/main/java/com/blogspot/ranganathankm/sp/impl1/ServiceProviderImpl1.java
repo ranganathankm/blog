@@ -1,6 +1,6 @@
-package com.blogspot.javanbswing.sp.impl1;
+package com.blogspot.ranganathankm.sp.impl1;
 
-import com.blogspot.javanbswing.sp.api.ServiceInterface;
+import com.blogspot.ranganathankm.sp.api.ServiceInterface;
 
 public class ServiceProviderImpl1  implements ServiceInterface
 {

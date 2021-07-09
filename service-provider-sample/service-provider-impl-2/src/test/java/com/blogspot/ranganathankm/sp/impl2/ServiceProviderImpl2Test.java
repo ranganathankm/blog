@@ -1,5 +1,6 @@
-package com.blogspot.javanbswing.sp.impl2;
+package com.blogspot.ranganathankm.sp.impl2;
 
+import com.blogspot.ranganathankm.sp.impl2.ServiceProviderImpl2;
 import junit.framework.Assert;
 import org.junit.Test;
 

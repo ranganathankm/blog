@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.blogspot.javanbswing</groupId>
+    <groupId>com.blogspot.ranganathankm</groupId>
     <artifactId>service-provider-sample-client</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
@@ -16,12 +16,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.blogspot.javanbswing</groupId>
+            <groupId>com.blogspot.ranganathankm</groupId>
             <artifactId>service-provider-sample-api</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>com.blogspot.javanbswing</groupId>
+            <groupId>com.blogspot.ranganathankm</groupId>
             <artifactId>service-provider-impl-1</artifactId>
             <version>1.0</version>
         </dependency>

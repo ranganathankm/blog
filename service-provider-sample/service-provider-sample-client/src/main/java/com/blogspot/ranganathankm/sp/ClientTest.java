@@ -1,6 +1,6 @@
-package com.blogspot.javanbswing.sp;
+package com.blogspot.ranganathankm.sp;
 
-import com.blogspot.javanbswing.sp.api.ServiceInterface;
+import com.blogspot.ranganathankm.sp.api.ServiceInterface;
 import java.util.ServiceLoader;
 
 /**
