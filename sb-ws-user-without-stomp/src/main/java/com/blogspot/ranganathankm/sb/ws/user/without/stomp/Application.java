@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.sb.ws.user.without.stomp;
+package com.blogspot.ranganathankm.sb.ws.user.without.stomp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

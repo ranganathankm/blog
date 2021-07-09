@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.sb.ws.user.without.stomp;
+package com.blogspot.ranganathankm.sb.ws.user.without.stomp;
 
 import java.io.IOException;
 import java.util.List;

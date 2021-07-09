@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.sb.ws.user.without.stomp;
+package com.blogspot.ranganathankm.sb.ws.user.without.stomp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
