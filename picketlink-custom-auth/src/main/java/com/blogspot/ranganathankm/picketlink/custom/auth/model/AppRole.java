@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.model;
+package com.blogspot.ranganathankm.picketlink.custom.auth.model;
 
 /**
  *

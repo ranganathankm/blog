@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.manager;
+package com.blogspot.ranganathankm.picketlink.custom.auth.manager;
 
 import java.io.Serializable;
 import org.picketlink.Identity;
@@ -9,8 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import org.picketlink.idm.model.basic.*;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.AppRole;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.UserRole;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.UserRole;
 
 /**
  * @author Ranga

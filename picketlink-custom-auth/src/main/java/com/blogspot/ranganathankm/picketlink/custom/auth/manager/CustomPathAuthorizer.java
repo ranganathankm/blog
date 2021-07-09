@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.manager;
+package com.blogspot.ranganathankm.picketlink.custom.auth.manager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.picketlink.Identity;
 import org.picketlink.config.http.PathConfiguration;
 import org.picketlink.http.authorization.PathAuthorizer;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.AppRole;
 
 /**
  *

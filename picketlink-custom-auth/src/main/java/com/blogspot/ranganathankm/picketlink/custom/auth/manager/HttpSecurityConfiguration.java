@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.manager;
+package com.blogspot.ranganathankm.picketlink.custom.auth.manager;
 
 import org.picketlink.config.SecurityConfigurationBuilder;
 import org.picketlink.event.SecurityConfigurationEvent;
@@ -9,7 +9,7 @@ import org.picketlink.config.http.AuthorizationConfiguration;
 import org.picketlink.config.http.PathConfiguration;
 import org.picketlink.http.AuthenticationRequiredException;
 import org.picketlink.http.authorization.PathAuthorizer;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.AppRole;
 
 /**
  *

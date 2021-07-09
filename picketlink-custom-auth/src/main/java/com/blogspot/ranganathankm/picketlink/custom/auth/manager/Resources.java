@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.manager;
+package com.blogspot.ranganathankm.picketlink.custom.auth.manager;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;

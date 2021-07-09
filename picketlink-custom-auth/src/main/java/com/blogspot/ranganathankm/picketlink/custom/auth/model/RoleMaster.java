@@ -1,32 +1,36 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.model;
+package com.blogspot.ranganathankm.picketlink.custom.auth.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author Ranga _Manner
+ * @author ranga
  */
 @Entity
-@Table(name = "user_password")
+@Table(name = "role_master")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "UserPassword.findByUserId", query = "SELECT u FROM UserPassword u WHERE u.appUser.id = :id"),
-})
-public class UserPassword implements Serializable
+    @NamedQuery(name = "RoleMaster.findAll", query = "SELECT r FROM RoleMaster r"),
+    @NamedQuery(name = "RoleMaster.findById", query = "SELECT r FROM RoleMaster r WHERE r.id = :id"),
+    @NamedQuery(name = "RoleMaster.findByName", query = "SELECT r FROM RoleMaster r WHERE r.name = :name")})
+public class RoleMaster implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
@@ -36,28 +40,25 @@ public class UserPassword implements Serializable
     @NotNull
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
-    @Column(name = "passwordHash")
-    private String passwordHash;
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @OneToOne(optional = false)
-    private AppUser appUser;
+    @Column(name = "name")
+    @Enumerated(EnumType.STRING)
+    private AppRole name;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "role")
+    private Collection<UserRole> userRoleCollection;
 
-    public UserPassword()
+    public RoleMaster()
     {
     }
 
-    public UserPassword(Integer id)
+    public RoleMaster(Integer id)
     {
         this.id = id;
     }
 
-    public UserPassword(Integer id, String passwordHash)
+    public RoleMaster(Integer id, AppRole name)
     {
         this.id = id;
-        this.passwordHash = passwordHash;
+        this.name = name;
     }
 
     public Integer getId()
@@ -70,24 +71,25 @@ public class UserPassword implements Serializable
         this.id = id;
     }
 
-    public String getPasswordHash()
+    public AppRole getName()
     {
-        return passwordHash;
+        return name;
     }
 
-    public void setPasswordHash(String passwordHash)
+    public void setName(AppRole name)
     {
-        this.passwordHash = passwordHash;
+        this.name = name;
     }
 
-    public AppUser getAppUser()
+    @XmlTransient
+    public Collection<UserRole> getUserRoleCollection()
     {
-        return appUser;
+        return userRoleCollection;
     }
 
-    public void setAppUser(AppUser appUser)
+    public void setUserRoleCollection(Collection<UserRole> userRoleCollection)
     {
-        this.appUser = appUser;
+        this.userRoleCollection = userRoleCollection;
     }
 
     @Override
@@ -102,10 +104,10 @@ public class UserPassword implements Serializable
     public boolean equals(Object object)
     {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UserPassword)) {
+        if (!(object instanceof RoleMaster)) {
             return false;
         }
-        UserPassword other = (UserPassword) object;
+        RoleMaster other = (RoleMaster) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -115,7 +117,7 @@ public class UserPassword implements Serializable
     @Override
     public String toString()
     {
-        return "sample.picketlink.custom.auth.UserPassword[ id=" + id + " ]";
+        return "sample.picketlink.custom.auth.RoleMaster[ id=" + id + " ]";
     }
     
 }

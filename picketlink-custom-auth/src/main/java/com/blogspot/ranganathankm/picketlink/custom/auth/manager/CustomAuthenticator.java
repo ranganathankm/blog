@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.manager;
+package com.blogspot.ranganathankm.picketlink.custom.auth.manager;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -14,8 +14,8 @@ import org.picketlink.credential.DefaultLoginCredentials;
 import org.picketlink.idm.credential.encoder.SHAPasswordEncoder;
 import org.picketlink.idm.credential.encoder.PasswordEncoder;
 import org.picketlink.idm.model.basic.User;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.AppUser;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.UserPassword;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.AppUser;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.UserPassword;
 
 /**
  *

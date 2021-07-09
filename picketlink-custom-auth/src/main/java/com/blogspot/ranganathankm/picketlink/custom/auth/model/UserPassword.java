@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.model;
+package com.blogspot.ranganathankm.picketlink.custom.auth.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -10,8 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -19,12 +21,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Ranga _Manner
  */
 @Entity
-@Table(name = "user_role")
+@Table(name = "user_password")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "UserRole.findAll", query = "SELECT u FROM UserRole u"),
-    @NamedQuery(name = "UserRole.findByUserId", query = "SELECT u FROM UserRole u WHERE u.appUser.id = :id")})
-public class UserRole implements Serializable
+    @NamedQuery(name = "UserPassword.findByUserId", query = "SELECT u FROM UserPassword u WHERE u.appUser.id = :id"),
+})
+public class UserPassword implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
@@ -34,20 +36,28 @@ public class UserRole implements Serializable
     @NotNull
     @Column(name = "id")
     private Integer id;
-    @JoinColumn(name = "role_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private RoleMaster role;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "passwordHash")
+    private String passwordHash;
     @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @OneToOne(optional = false)
     private AppUser appUser;
 
-    public UserRole()
+    public UserPassword()
     {
     }
 
-    public UserRole(Integer id)
+    public UserPassword(Integer id)
     {
         this.id = id;
+    }
+
+    public UserPassword(Integer id, String passwordHash)
+    {
+        this.id = id;
+        this.passwordHash = passwordHash;
     }
 
     public Integer getId()
@@ -60,14 +70,14 @@ public class UserRole implements Serializable
         this.id = id;
     }
 
-    public RoleMaster getRole()
+    public String getPasswordHash()
     {
-        return role;
+        return passwordHash;
     }
 
-    public void setRole(RoleMaster role)
+    public void setPasswordHash(String passwordHash)
     {
-        this.role = role;
+        this.passwordHash = passwordHash;
     }
 
     public AppUser getAppUser()
@@ -92,10 +102,10 @@ public class UserRole implements Serializable
     public boolean equals(Object object)
     {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof UserRole)) {
+        if (!(object instanceof UserPassword)) {
             return false;
         }
-        UserRole other = (UserRole) object;
+        UserPassword other = (UserPassword) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -105,7 +115,7 @@ public class UserRole implements Serializable
     @Override
     public String toString()
     {
-        return "sample.picketlink.custom.auth.UserRole[ id=" + id + " ]";
+        return "sample.picketlink.custom.auth.UserPassword[ id=" + id + " ]";
     }
     
 }

@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.picketlink.custom.auth.manager;
+package com.blogspot.ranganathankm.picketlink.custom.auth.manager;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
@@ -13,11 +13,11 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import org.picketlink.idm.credential.encoder.SHAPasswordEncoder;
 import org.picketlink.idm.credential.encoder.PasswordEncoder;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.AppRole;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.AppUser;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.RoleMaster;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.UserPassword;
-import com.blogspot.javanbswing.picketlink.custom.auth.model.UserRole;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.AppRole;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.AppUser;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.RoleMaster;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.UserPassword;
+import com.blogspot.ranganathankm.picketlink.custom.auth.model.UserRole;
 
 /**
  *
