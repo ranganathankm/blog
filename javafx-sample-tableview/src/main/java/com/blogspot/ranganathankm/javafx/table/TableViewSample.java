@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.javafx.table;
+package com.blogspot.ranganathankm.javafx.table;
 
 import java.time.LocalDate;
 import javafx.application.*;
