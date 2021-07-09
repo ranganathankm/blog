@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.treetable;
+package com.blogspot.ranganathankm.treetable;
 
 import java.awt.Component;
 import javax.swing.ImageIcon;
