@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing.model;
+package com.blogspot.ranganathankm.model;
 
 /**
  *

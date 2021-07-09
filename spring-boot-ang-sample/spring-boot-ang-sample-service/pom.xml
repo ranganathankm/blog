@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>spring-boot-ang-sample</artifactId>
-        <groupId>com.blogspot.javanbswing</groupId>
+        <groupId>com.blogspot.ranganathankm</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -29,4 +29,5 @@
         </plugin>
       </plugins>
     </build>
+    <groupId>com.blogspot.ranganathankm</groupId>
 </project>

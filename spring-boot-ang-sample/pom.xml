@@ -8,7 +8,7 @@
 		<version>2.2.1.RELEASE</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.blogspot.javanbswing</groupId>
+	<groupId>com.blogspot.ranganathankm</groupId>
 	<artifactId>spring-boot-ang-sample</artifactId>
 	<version>1.0</version>
 	<name>spring-boot-ang-sample</name>

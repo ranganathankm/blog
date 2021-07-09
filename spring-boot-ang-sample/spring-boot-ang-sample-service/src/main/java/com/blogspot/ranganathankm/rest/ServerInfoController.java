@@ -1,6 +1,6 @@
-package com.blogspot.javanbswing.rest;
+package com.blogspot.ranganathankm.rest;
 
-import com.blogspot.javanbswing.model.ServerInfo;
+import com.blogspot.ranganathankm.model.ServerInfo;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;

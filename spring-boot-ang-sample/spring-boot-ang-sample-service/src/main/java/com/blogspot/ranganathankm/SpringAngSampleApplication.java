@@ -1,4 +1,4 @@
-package com.blogspot.javanbswing;
+package com.blogspot.ranganathankm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
